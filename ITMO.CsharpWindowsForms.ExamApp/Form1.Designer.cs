@@ -30,17 +30,12 @@ namespace ITMO.CsharpWindowsForms.ExamApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.Refreshbutton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.test_blockDataSet = new ITMO.CsharpWindowsForms.ExamApp.test_blockDataSet();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,25 +47,25 @@ namespace ITMO.CsharpWindowsForms.ExamApp
             ((System.ComponentModel.ISupportInitialize)(this.test_blockDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // AddButton
             // 
-            this.button1.Location = new System.Drawing.Point(52, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 31);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddButton.Location = new System.Drawing.Point(52, 188);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(121, 31);
+            this.AddButton.TabIndex = 0;
+            this.AddButton.Text = "Добавить";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // Refreshbutton
             // 
-            this.button2.Location = new System.Drawing.Point(329, 285);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 30);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Обновить данные";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Refreshbutton.Location = new System.Drawing.Point(329, 285);
+            this.Refreshbutton.Name = "Refreshbutton";
+            this.Refreshbutton.Size = new System.Drawing.Size(137, 30);
+            this.Refreshbutton.TabIndex = 1;
+            this.Refreshbutton.Text = "Обновить данные";
+            this.Refreshbutton.UseVisualStyleBackColor = true;
+            this.Refreshbutton.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -99,53 +94,16 @@ namespace ITMO.CsharpWindowsForms.ExamApp
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.numberDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.discountDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.t1BindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(195, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(405, 258);
             this.dataGridView1.TabIndex = 5;
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // discountDataGridViewTextBoxColumn
-            // 
-            this.discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
-            this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
-            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            // 
             // t1BindingSource
             // 
-            this.t1BindingSource.DataMember = "t1";
             this.t1BindingSource.DataSource = this.test_blockDataSet;
+            this.t1BindingSource.Position = 0;
             // 
             // test_blockDataSet
             // 
@@ -196,10 +154,10 @@ namespace ITMO.CsharpWindowsForms.ExamApp
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Refreshbutton);
+            this.Controls.Add(this.AddButton);
             this.Name = "Connect";
-            this.Text = "ExamForm";
+            this.Text = "InsertDataForm";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t1BindingSource)).EndInit();
@@ -211,8 +169,8 @@ namespace ITMO.CsharpWindowsForms.ExamApp
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button Refreshbutton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
@@ -223,11 +181,6 @@ namespace ITMO.CsharpWindowsForms.ExamApp
         private test_blockDataSet test_blockDataSet;
         private System.Windows.Forms.BindingSource t1BindingSource;
         private test_blockDataSetTableAdapters.t1TableAdapter t1TableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
     }
 }
 

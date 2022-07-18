@@ -20,7 +20,14 @@ namespace ITMO.CsharpWindowsForms.ExamApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.t1TableAdapter.Fill(this.test_blockDataSet.t1);
+            try
+            {
+                this.t1TableAdapter.Fill(this.test_blockDataSet.t1);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возникло исключение SqlExeception");
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,14 +39,21 @@ namespace ITMO.CsharpWindowsForms.ExamApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string NewQuary = "INSERT INTO[dbo].[t1] (Name, Number, Price)" + " " + "VALUES ('" + textBox1.Text +"', " + textBox2.Text + ", " + textBox3.Text + ")";
-            using (SqlConnection conn = new SqlConnection("Integrated Security = SSPI; Persist Security Info = False; Initial Catalog = test_block; Data Source = DESKTOP-7QGSKNO\\SQLEXPRESS"))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(NewQuary, conn))
+                string NewQuary = "INSERT INTO[dbo].[t1] (Name, Number, Price)" + " " + "VALUES ('" + textBox1.Text + "', " + textBox2.Text + ", " + textBox3.Text + ")";
+                using (SqlConnection conn = new SqlConnection("Integrated Security = SSPI; Persist Security Info = False; Initial Catalog = test_block; Data Source = .\\SQLEXPRESS"))
                 {
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(NewQuary, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возникло исключение SqlExeception");
             }
         }
     }
